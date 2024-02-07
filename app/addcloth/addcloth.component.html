@@ -1,0 +1,46 @@
+<div mat-dialog-title>
+    <h1>Clothing details</h1>
+</div>
+<div>
+   <form #form="ngForm" (ngSubmit)="addcloth()">
+    <div>
+    <label>Name</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="addclothRequest.name"/>
+    </div>
+    <div>
+        <label>Description</label>
+        <input type="text" class="form-control" id="description" name="description" [(ngModel)]="addclothRequest.description"/>
+        </div>
+        <div>
+            <label>Price</label>
+            <input type="number" class="form-control" id="price" name="price" [(ngModel)]="addclothRequest.price"/>
+        </div>
+        <div>
+            <label>Size</label>
+            <input type="text" class="form-control" id="size" name="size" [(ngModel)]="addclothRequest.size"/>
+        </div>
+        <div>
+            <label>Color</label>
+            <input type="text" class="form-control" id="colr" name="color" [(ngModel)]="addclothRequest.color"/>
+        </div>
+        <div>
+            <label>Gender</label>
+            <input type="text" class="form-control" id="gender" name="gender" [(ngModel)]="addclothRequest.gender"/>
+        </div>
+        <div>
+            <label>Instock</label>
+            <input type="text" class="form-control" id="instock" name="instock" [(ngModel)]="addclothRequest.inStock"/>
+        </div>
+        <div>
+            <label>Count</label>
+            <input type="number" class="form-control" id="count" name="count" [(ngModel)]="addclothRequest.count"/>
+        </div>
+        <div>
+            <label>Added Date</label>
+            <input type="datetime-local" class="form-control" id="addeddate" name="addeddate" [(ngModel)]="addclothRequest.addedDate"/>
+        </div>
+        <div>
+            <p-button label="Add Cloth" severity="primary" type="ngSubmit"></p-button>
+        </div>
+   </form>
+</div>

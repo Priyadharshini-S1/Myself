@@ -1,0 +1,40 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Cloth } from './cloth';
+import { HttpClientModule } from '@angular/common/http';
+@Injectable({
+  providedIn: 'root'
+})
+export class ClothserviceService {
+  baseApiUrl:string="https://localhost:7152";
+  constructor(private http:HttpClient) {
+  }
+
+  getAllclothes():Observable<Cloth[]>{
+  return this.http.get<Cloth[]>(this.baseApiUrl+'/api/clothing')
+  }
+
+  addclothes(addClothRequest:Cloth):Observable<Cloth[]>
+  {
+   addClothRequest.productId=0;
+   return this.http.post<Cloth[]>(this.baseApiUrl+'/api/clothing',addClothRequest);
+  }
+ 
+
+  getClothById(productId:number):Observable<Cloth>
+  {
+    return this.http.get<Cloth>(this.baseApiUrl+'/api/clothing/'+ productId);
+  }
+
+  updateClothDetails(productId:number,updateClothDet:Cloth):Observable<Cloth[]>
+  {
+    return this.http.put<Cloth[]>(this.baseApiUrl+'/api/clothing/'+productId,updateClothDet);
+  }
+  deleteClothing(productId:number):Observable<Cloth>
+  {
+    return this.http.delete<Cloth>(this.baseApiUrl+'/api/clothing/'+productId);
+  }
+
+
+}

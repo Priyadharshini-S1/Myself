@@ -1,0 +1,110 @@
+<!-- <div mat-dialog-title>
+    <h1>Clothing details</h1>
+</div>
+<div>
+   <form #form="ngForm" (ngSubmit)="updateCloth()">
+    <div>
+        <label>Product Id</label>
+        <input type="number" class="form-control" id="productId" readonly name="productId" [(ngModel)]="editClothDetails.productId"/>
+        </div>
+        <div>
+    <div>
+    <label>Name</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="editClothDetails.name"/>
+    </div>
+    <div>
+        <label>Description</label>
+        <input type="text" class="form-control" id="description" name="description" [(ngModel)]="editClothDetails.description"/>
+        </div>
+        <div>
+            <label>Price</label>
+            <input type="number" class="form-control" id="price" name="price" [(ngModel)]="editClothDetails.price"/>
+        </div>
+        <div>
+            <label>Size</label>
+            <input type="text" class="form-control" id="size" name="size" [(ngModel)]="editClothDetails.size"/>
+        </div>
+        <div>
+            <label>Color</label>
+            <input type="text" class="form-control" id="colr" name="color" [(ngModel)]="editClothDetails.color"/>
+        </div>
+        <div>
+            <label>Gender</label>
+            <input type="text" class="form-control" id="gender" name="gender" [(ngModel)]="editClothDetails.gender"/>
+        </div>
+        <div>
+            <label>Instock</label>
+            <input type="text" class="form-control" id="instock" name="instock" [(ngModel)]="editClothDetails.inStock"/>
+        </div>
+        <div>
+            <label>Count</label>
+            <input type="number" class="form-control" id="count" name="count" [(ngModel)]="editClothDetails.count"/>
+        </div>
+        <div>
+            <label>Added Date</label>
+            <input type="date" class="form-control" id="addeddate" name="addeddate" [(ngModel)]="editClothDetails.addedDate"/>
+        </div>
+        <div>
+            <p-button label="Save" severity="primary" type="ngSubmit"></p-button>
+            <p-button label="Delete" severity="danger" type="button" (click)="deleteCloth(editClothDetails.productId)"></p-button>
+        </div>
+        </div>
+   </form>
+</div>
+ -->
+
+ <div mat-dialog-title>
+    <h1>Clothing details</h1>
+</div>
+<div>
+    <form #form="ngForm" (ngSubmit)="updateCloth()">
+        <div class="p-grid p-fluid">
+            <div class="p-field p-col-12">
+                <label for="productId">Product Id</label>
+                <input type="number" class="form-control" id="productId" readonly name="productId" [(ngModel)]="editClothDetails.productId"/>
+            </div>
+            <div class="p-field p-col-12">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="editClothDetails.name"/>
+            </div>
+            <div class="p-field p-col-12">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" name="description" [(ngModel)]="editClothDetails.description"/>
+            </div>
+            <div class="p-field p-col-12">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" name="price" [(ngModel)]="editClothDetails.price"/>
+            </div>
+            <div class="p-field p-col-12">
+                <label for="size">Size</label>
+                <input type="text" class="form-control" id="size" name="size" [(ngModel)]="editClothDetails.size"/>
+            </div>
+            <div class="p-field p-col-12">
+                <label for="color">Color</label>
+                <input type="text" class="form-control" id="color" name="color" [(ngModel)]="editClothDetails.color"/>
+            </div>
+            <div class="p-field p-col-12">
+                <label for="gender">Gender</label>
+                <input type="text" class="form-control" id="gender" name="gender" [(ngModel)]="editClothDetails.gender"/>
+            </div>
+            <div class="p-field p-col-12">
+                <label for="instock">Instock</label>
+                <p-dropdown [options]="[{label:'Yes', value:true}, {label:'No', value:false}]" id="instock" name="instock" [(ngModel)]="editClothDetails.inStock"></p-dropdown>
+            </div>
+            <div class="p-field p-col-12">
+                <label for="count">Count</label>
+                <input type="number" class="form-control" id="count" name="count" [(ngModel)]="editClothDetails.count"/>
+            </div>
+            <div class="p-field p-col-12">
+                <label for="addeddate">Added Date</label>
+                <input type="date" class="form-control" id="addeddate" name="addeddate" [(ngModel)]="editClothDetails.addedDate"/>
+            </div>
+            <div class="p-field p-col-12">
+                <button pButton type="submit" label="Save" icon="pi pi-save" class="p-mr-2"></button>
+                <button pButton type="button" label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteCloth(editClothDetails.productId)"></button>
+            </div>
+        </div>
+    </form>
+</div>
+
+

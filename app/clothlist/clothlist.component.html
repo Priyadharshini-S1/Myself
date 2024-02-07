@@ -1,0 +1,38 @@
+<p>Cloth list</p>
+<div class="card">
+    <p-table [value]="clothes" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Product Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                 <th>Size</th>  
+                  <th>Color</th> 
+                   <th>Gender</th>
+                    <th>Instock</th>
+                    <th>Count</th>
+                    <th>Added Date</th>
+                 
+          
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>{{ product.productId }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.size}}</td>
+                <td>{{ product.color }}</td>
+                <td>{{ product.gender }}</td>
+                <td>{{ product.inStock }}</td>
+                <td>{{ product.count}}</td>
+                <td>{{product.addedDate}}</td>
+                             
+                <p-button label="View Details" severity="primary" [routerLink]="['/edit',product.productId]" type="ngSubmit"></p-button>
+                
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
