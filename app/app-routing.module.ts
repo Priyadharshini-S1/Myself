@@ -5,13 +5,23 @@ import { AddComponent } from './add/add.component';
 import { ClothlistComponent } from './clothlist/clothlist.component';
 import { AddclothComponent } from './addcloth/addcloth.component';
 import { EditclothComponent } from './editcloth/editcloth.component';
+import { GetcustomerComponent } from './getcustomer/getcustomer.component';
+import { AddcustomerComponent } from './addcustomer/addcustomer.component';
+import { CartcheckComponent } from './cartcheck/cartcheck.component';
+import { CartDetailComponent } from './cart-detail/cart-detail.component';
+
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'c',component:ClothlistComponent},
   {path:'add',component:AddclothComponent},
   {path:'edit/:productId',component:EditclothComponent},
-  {path:'delete/:productId',component:EditclothComponent}
+  {path:'delete/:productId',component:EditclothComponent},
+  {path:'customer',component:GetcustomerComponent},
+  {path:'addcustomer',component:AddcustomerComponent},
+  {path:'addcart',component:CartcheckComponent},
+  {path:'cart/:productId/:count',component:CartDetailComponent}
+
 ];
 
 @NgModule({

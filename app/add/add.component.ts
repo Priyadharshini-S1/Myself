@@ -10,6 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { MatChipsModule} from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-add',
@@ -17,7 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './add.component.css',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [MatFormFieldModule, MatInputModule, MatDatepickerModule,MatChipsModule,MatIconModule],
+  imports: [MatFormFieldModule, MatInputModule, MatDatepickerModule,MatChipsModule,MatIconModule,MatCardModule],
 })
 
 export class AddComponent {

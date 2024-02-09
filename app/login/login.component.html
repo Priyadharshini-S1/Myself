@@ -1,4 +1,4 @@
-<div class="background-container">
+<!-- <div class="background-container">
     <div class="login-container">
       <h2>Login</h2>
       <form (ngSubmit)="login()" class="login-form">
@@ -12,6 +12,42 @@
         </div>
         <div class="center">
             <button pButton type="button" label="Login"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+   -->
+   <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="toolbar-title">Online Clothing Store</span>
+      <span class="spacer"></span>
+      <button mat-icon-button>
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>admin_panel_settings</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <div class="background-container">
+    <div style="align-content: center;">
+    <p style="margin-left: 230px; font-weight: bold;font-size: xx-large;">New day,New adventures</p><br>
+    <p style="font-feature-settings:aalt;font-size: large;font-weight: 500;text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">From professional to casual to tough and trail-ready -Let's build a wardrobe that's always got your back</p>
+    
+    <div class="login-container">
+      <h2>Login</h2>
+      <form (ngSubmit)="login()" class="login-form">
+        <div class="p-field">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" id="username" name="username" [(ngModel)]="username" pInputText class="form-input" required>
+        </div>
+        <div class="p-field">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" name="password" [(ngModel)]="password" pPassword class="form-input" required>
+        </div>
+        <div class="center">
+          <button pButton type="submit" label="Login"></button>
         </div>
       </form>
     </div>

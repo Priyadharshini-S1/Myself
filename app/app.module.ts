@@ -29,6 +29,15 @@ import { ClothlistComponent } from './clothlist/clothlist.component';
 import { TableModule } from 'primeng/table';
 import { AddclothComponent } from './addcloth/addcloth.component';
 import { EditclothComponent } from './editcloth/editcloth.component';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerToggle } from '@angular/material/datepicker';
+import { GetcustomerComponent } from './getcustomer/getcustomer.component';
+import { AddcustomerComponent } from './addcustomer/addcustomer.component';
+import { CartDetailComponent } from './cart-detail/cart-detail.component';
+import { CartcheckComponent } from './cartcheck/cartcheck.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +46,19 @@ import { EditclothComponent } from './editcloth/editcloth.component';
     ClothlistComponent,
     AddclothComponent,
     EditclothComponent,
+    GetcustomerComponent,
+    AddcustomerComponent,
+    CartDetailComponent,
+    CartcheckComponent,
+
     
   ],
   imports: [
+    
+   MatDatepickerToggle,
+    MatCheckboxModule,
+    MatCardModule,
+    MatButtonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -63,7 +82,8 @@ import { EditclothComponent } from './editcloth/editcloth.component';
     MatSelectModule,
     MatDialogModule,
    MatChipsModule,
-   TableModule
+   TableModule,
+   BrowserAnimationsModule
 
   ],
   providers: [],

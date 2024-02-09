@@ -1,5 +1,7 @@
+// login.component.ts
+
 import { Component } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,20 +12,16 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private authService: AuthService) { }
 
-  login() {
-    const headers = new HttpHeaders({
-      'Authorization': 'Basic ' + btoa(this.username + ':' + this.password)
-    });
-
-    this.http.post<any>('https://localhost:7152/api/clothing', {}, { headers })
+  login(): void {
+    this.authService.login(this.username, this.password)
       .subscribe(
         response => {
-          console.log('Login successful');
+          console.log("login successful")
         },
         error => {
-          console.error('Login failed', error);
+          console.log("login failed")
         }
       );
   }

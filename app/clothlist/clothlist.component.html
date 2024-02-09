@@ -1,4 +1,12 @@
-<p>Cloth list</p>
+<!-- 
+<mat-toolbar color="primary">
+    <span>Online Clothing Store</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button [routerLink]="['/add']" style="float: right;">Add Cloths</button>
+    <button mat-raised-button [routerLink]="['/customer']" style="float: right;">View Customer</button>
+    <button mat-raised-button [routerLink]="['/addcustomer']" style="float: right;">Add Customer</button>
+    <button mat-raised-button [routerLink]="['/addcart']" style="float: right;">Add Cart</button>
+</mat-toolbar> 
 <div class="card">
     <p-table [value]="clothes" [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="header">
@@ -35,4 +43,50 @@
             </tr>
         </ng-template>
     </p-table>
+</div> -->
+
+<mat-toolbar color="primary">
+    <span>Online Clothing Store</span>
+    <span class="example-spacer"></span>
+    <div class="button-container" >
+    <button mat-raised-button [routerLink]="['/add']">Add Cloths</button>
+    <button mat-raised-button [routerLink]="['/customer']">View Customer</button>
+    <button mat-raised-button [routerLink]="['/addcustomer']">Add Customer</button>
+    <button mat-raised-button [routerLink]="['/addcart']">Add Cart</button>
+    </div>
+</mat-toolbar> 
+
+<div class="table-container">
+    <table class="clothes-table">
+        <thead>
+            <tr>
+                <th>Product Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Size</th>  
+                <th>Color</th> 
+                <th>Gender</th>
+                <th>In Stock</th>
+                <th>Count</th>
+                <th>Added Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of clothes">
+                <td>{{ product.productId }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.size }}</td>
+                <td>{{ product.color }}</td>
+                <td>{{ product.gender }}</td>
+                <td>{{ product.inStock }}</td>
+                <td>{{ product.count }}</td>
+                <td>{{ product.addedDate }}</td>
+                <td><button mat-raised-button color="primary" [routerLink]="['/edit', product.productId]" style="margin-left: 80px">View Details</button></td>
+            </tr>
+        </tbody>
+    </table>
 </div>

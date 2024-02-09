@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient ,HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cloth } from './cloth';
 import { HttpClientModule } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { Customers } from './customers';
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +37,12 @@ export class ClothserviceService {
   {
     return this.http.delete<Cloth>(this.baseApiUrl+'/api/clothing/'+productId);
   }
-
-
+  getCustomers():Observable<Customers[]>{
+    return this.http.get<Customers[]>(this.baseApiUrl+'/api/clothing/get')
+    }
+  addCustomers(addcustomerRequest:Customers):Observable<Customers[]>
+  {
+    addcustomerRequest.customerId=0;
+    return this.http.post<Customers[]>(this.baseApiUrl+'/api/clothing/add',addcustomerRequest);
+  }
 }

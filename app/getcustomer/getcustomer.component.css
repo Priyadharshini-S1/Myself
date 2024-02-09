@@ -1,4 +1,31 @@
-.table-container {
+/* 
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.custom-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.custom-table td {
+    background-color: #f2f2f2;
+}
+
+.custom-table tr:hover {
+    background-color: #f5f5f5;
+}
+ */
+ .table-container {
     margin-top: 0px;
     background: linear-gradient(to bottom right, #f0f0f0, #c0c0c0);
     border-radius: 10px;
@@ -34,17 +61,11 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-.mat-toolbar {
-    display: flex;
-    justify-content: space-between; /* Aligns items at the start and end of the toolbar */
-}
-
 .button-container {
+    margin-left: auto;
     display: flex;
     align-items: center;
 }
-
 .button-container button {
-    margin-left: 10px;
+    margin-left: 8px;
 }
-
