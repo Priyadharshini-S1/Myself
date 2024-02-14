@@ -1,0 +1,61 @@
+<div mat-dialog-title>
+    <h1>Clothing details</h1>
+</div>
+<div mat-dialog-content class="content">
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Product Id</mat-label>
+            <input matInput type="number" placeholder="Enter productid">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>color</mat-label>
+            <input matInput type="text" placeholder="Enter Color">
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Product Name</mat-label>
+            <input matInput type="text" placeholder="Enter productname">
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Product Description</mat-label>
+            <input matInput type="text" placeholder="Enter product description">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Instock</mat-label>
+            <input matInput type="text">
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+        <mat-form-field appearance="outline" appearance="outline">
+            <mat-label>count</mat-label>
+            <input matInput type="number" placeholder="Enter count">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input matInput type="number">
+        </mat-form-field>
+    </div>
+    
+    <div class="row">
+        <mat-form-field color="accent" apperance="outline">
+            <mat-label>Inherited calendar color</mat-label>
+            <input matInput [matDatepicker]="picker1">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+          
+    </div>
+    
+
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary">Save Details</button>
+
+</div>

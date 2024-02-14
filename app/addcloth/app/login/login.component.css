@@ -1,0 +1,53 @@
+.background-container {
+    background-image: url('../../assets/bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-container {
+
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center-align */
+    justify-content: center; /* Vertically center-align */
+    width: 300px;
+    margin-left: 250px;
+  }
+  
+  .login-container h2 {
+    margin-bottom: 20px;
+  }
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-label {
+    margin-bottom: 5px;
+    font-weight: bold; 
+  }
+  
+  .form-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .p-field {
+    margin-bottom: 15px;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  

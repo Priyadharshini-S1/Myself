@@ -1,0 +1,50 @@
+.table-container {
+    margin-top: 0px;
+    background: linear-gradient(to bottom right, #f0f0f0, #c0c0c0);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.clothes-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.clothes-table th, .clothes-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.clothes-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.clothes-table td {
+    background-color: #f2f2f2;
+}
+
+.clothes-table th:first-child, .clothes-table td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.clothes-table th:last-child, .clothes-table td:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.mat-toolbar {
+    display: flex;
+    justify-content: space-between; /* Aligns items at the start and end of the toolbar */
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+.button-container button {
+    margin-left: 10px;
+}
+

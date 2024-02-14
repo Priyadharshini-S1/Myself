@@ -1,0 +1,129 @@
+<!-- <div mat-dialog-title>
+    <h1>Clothing details</h1>
+</div>
+<div>
+   <form #form="ngForm" (ngSubmit)="updateCloth()">
+    <div>
+        <label>Product Id</label>
+        <input type="number" class="form-control" id="productId" readonly name="productId" [(ngModel)]="editClothDetails.productId"/>
+        </div>
+        <div>
+    <div>
+    <label>Name</label>
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="editClothDetails.name"/>
+    </div>
+    <div>
+        <label>Description</label>
+        <input type="text" class="form-control" id="description" name="description" [(ngModel)]="editClothDetails.description"/>
+        </div>
+        <div>
+            <label>Price</label>
+            <input type="number" class="form-control" id="price" name="price" [(ngModel)]="editClothDetails.price"/>
+        </div>
+        <div>
+            <label>Size</label>
+            <input type="text" class="form-control" id="size" name="size" [(ngModel)]="editClothDetails.size"/>
+        </div>
+        <div>
+            <label>Color</label>
+            <input type="text" class="form-control" id="colr" name="color" [(ngModel)]="editClothDetails.color"/>
+        </div>
+        <div>
+            <label>Gender</label>
+            <input type="text" class="form-control" id="gender" name="gender" [(ngModel)]="editClothDetails.gender"/>
+        </div>
+        <div>
+            <label>Instock</label>
+            <input type="text" class="form-control" id="instock" name="instock" [(ngModel)]="editClothDetails.inStock"/>
+        </div>
+        <div>
+            <label>Count</label>
+            <input type="number" class="form-control" id="count" name="count" [(ngModel)]="editClothDetails.count"/>
+        </div>
+        <div>
+            <label>Added Date</label>
+            <input type="date" class="form-control" id="addeddate" name="addeddate" [(ngModel)]="editClothDetails.addedDate"/>
+        </div>
+        <div>
+            <p-button label="Save" severity="primary" type="ngSubmit"></p-button>
+            <p-button label="Delete" severity="danger" type="button" (click)="deleteCloth(editClothDetails.productId)"></p-button>
+        </div>
+        </div>
+   </form>
+</div> -->
+<div  class="background-container">
+<div mat-dialog-title style="padding-top: 5%;">
+<mat-card class="custom-card"  style=" background: linear-gradient(to right, #f8cfdd, #c97d81);">
+    <form #form="ngForm" (ngSubmit)="updateCloth()">
+        <mat-card-content>
+            <div class="i">
+                <mat-form-field>
+                    <mat-label>Product Id</mat-label>
+                    <input matInput type="number" id="productId" name="productId" [(ngModel)]="editClothDetails.productId" readonly>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" id="name" name="name" placeholder="Enter the Name"  [(ngModel)]="editClothDetails.name">
+                </mat-form-field>
+            </div>
+            <div class="i">
+                <mat-form-field>
+                    <mat-label>Description</mat-label>
+                    <input matInput type="text" id="description" name="description" placeholder="Enter the Description" [(ngModel)]="editClothDetails.description">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Price</mat-label>
+                    <input matInput type="number" id="price" name="price" placeholder="Enter the Price" [(ngModel)]="editClothDetails.price">
+                </mat-form-field>
+            </div>
+            <div class="i">
+                <mat-form-field>
+                    <mat-label>Size</mat-label>
+                    <input matInput type="text" id="size" name="size" placeholder="Enter the Size" [(ngModel)]="editClothDetails.size">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Color</mat-label>
+                    <input matInput type="text" id="color" name="color" placeholder="Enter the Color" [(ngModel)]="editClothDetails.color">
+                </mat-form-field>
+            </div>
+            <div class="i">
+                <mat-form-field>
+                    <mat-label>Gender</mat-label>
+                    <input matInput type="text" id="gender" name="gender" placeholder="Enter the Gender" [(ngModel)]="editClothDetails.gender">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Count</mat-label>
+                    <input matInput type="number" id="count" name="count" placeholder="Enter the count value" [(ngModel)]="editClothDetails.count">
+                </mat-form-field>
+            </div>
+            <div class="i">
+                <mat-form-field>
+                  <mat-label>Added Date and Time</mat-label>
+                 <input matInput [matDatepicker]="picker" placeholder="Choose a date and time" 
+                 [(ngModel)]="editClothDetails.addedDate" name="addedDate" id="addedDate">
+               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+               <mat-datepicker #picker></mat-datepicker>
+               
+               </mat-form-field>
+                
+                <mat-checkbox class="in-stock-checkbox"  [(ngModel)]="editClothDetails.inStock" name="inStock" id="inStock">In Stock</mat-checkbox>      
+            </div>
+            
+        </mat-card-content>
+        <mat-card-actions style=" margin-left: 210px;">
+          
+            <button mat-raised-button color="primary" type="submit">Save</button>       
+            <span style="margin-left: 10px;"></span>
+            <button mat-raised-button color="warn" type="button" (click)="deleteCloth(editClothDetails.productId)">Delete</button>
+        </mat-card-actions>
+        
+    </form>
+</mat-card>
+</div>
+</div>
+
+
+
+
+
+

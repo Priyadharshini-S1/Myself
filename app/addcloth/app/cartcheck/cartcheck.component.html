@@ -1,0 +1,50 @@
+
+
+<!-- 
+<form #form="ngForm" (ngSubmit)="fetchStock(carts.productId,carts.count)" class="flex justify-content-center align-items-center h-full">
+    <p-card  header="Cart" [style]="{width:'500px'}">
+            <div class="field ">
+                <label >Product Id</label>
+                <input type="number" class="w-full inp form-control" id="id" pInputText [(ngModel)]="carts.productId" [ngModelOptions]="{ standalone: true }" placeholder="Type your product name" />
+            </div>
+            <div class="field">
+                <label >Count</label>
+            <input type="number" class="w-full inp form-control" id="" pInputText [(ngModel)]="carts.count" [ngModelOptions]="{ standalone: true }" placeholder="Type your product name" />
+        </div>
+        <div class="card flex justify-content-center">
+            <p-button label="Create" severity="success" (click)="sample()" type="ngSubmit"></p-button>
+        </div>
+    </p-card>
+</form> -->
+
+
+<div  class="background-container">
+    <div mat-dialog-title style="padding-top: 5%; ">
+    
+    <mat-card class="custom-card">
+        <form #form="ngForm" (ngSubmit)="fetchStock(carts.productId,carts.count)">
+            <mat-card-content>
+                <div class="row">
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Product Id</mat-label>
+                        <input matInput type="number" id="id" name="id" [(ngModel)]="carts.productId">
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Count</mat-label>
+                        <input matInput type="number" id="count" name="count" [(ngModel)]="carts.count">
+                    </mat-form-field>
+                </div>
+              
+                
+            </mat-card-content>
+            <div class="row" style="justify-content: right;width: 100%;">
+            <mat-card-actions >
+                <button mat-raised-button color="primary" type="submit" (click)="sample()" type="ngSubmit">Create</button>
+            </mat-card-actions>
+        </div>
+        </form>
+    </mat-card>
+    </div>
+    </div>

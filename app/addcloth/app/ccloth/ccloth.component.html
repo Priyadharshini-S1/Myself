@@ -1,0 +1,44 @@
+<mat-toolbar color="primary">
+    <span>Online Clothing Store</span>
+    <span class="example-spacer"></span>
+    <div class="button-container" >
+    
+    <button mat-raised-button [routerLink]="['/addcart']">Add Cart</button>
+    </div>
+</mat-toolbar> 
+
+<div class="table-container">
+    <table class="clothes-table">
+        <thead>
+            <tr>
+                <th>Product Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Size</th>  
+                <th>Color</th> 
+                <th>Gender</th>
+                <th>In Stock</th>
+                <th>Count</th>
+                <th>Added Date</th>
+             
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of clothes">
+                <td>{{ product.productId }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.size }}</td>
+                <td>{{ product.color }}</td>
+                <td>{{ product.gender }}</td>
+                <td>{{ product.inStock }}</td>
+                <td>{{ product.count }}</td>
+                <td>{{ product.addedDate }}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+

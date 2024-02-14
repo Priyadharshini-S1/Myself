@@ -1,0 +1,36 @@
+<div  class="background-container">
+    <div mat-dialog-title style="padding-top: 5%; ">
+    
+    <mat-card class="custom-card"  style=" background: linear-gradient(to right, #dff8f8, #4e9294);">
+        <form #form="ngForm" (ngSubmit)="addcustomer()">
+            <mat-card-content>
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>Customer Name</mat-label>
+                        <input matInput type="text" id="name" name="name" [(ngModel)]="addcustomerRequest.customerName">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Customer Age</mat-label>
+                        <input matInput type="number" id="age" name="age" [(ngModel)]="addcustomerRequest.customerAge">
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field>
+                        <mat-label>Product Id</mat-label>
+                        <input matInput type="number" id="id" name="id" [(ngModel)]="addcustomerRequest.productId">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Count</mat-label>
+                        <input matInput type="number" id="count" name="count" [(ngModel)]="addcustomerRequest.count">
+                    </mat-form-field>
+                </div>
+                
+            </mat-card-content>
+            <mat-card-actions style="margin-left: 250px;">
+                <button mat-raised-button color="primary" type="submit">Save</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+    </div>
+    </div>
+    
