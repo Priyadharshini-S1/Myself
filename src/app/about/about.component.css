@@ -56,3 +56,45 @@ p{
 .progress-bar-wrap{
     background-color: #cfcfcf;
 }
+@keyframes slideInUp {
+    from{
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .container {
+    animation: slideInUp 2s ease-in-out;
+  }
+   /* @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"); */
+   .counter-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+     margin: 30px 50px; 
+  }
+   
+  .counter {
+    font-size: 48px;
+    display: block;
+    color: #34b7a7;
+  }
+  
+  @media (max-width: 580px) {
+    body {
+      flex-direction: column;
+    }
+  } 
+  .testimonals-img{
+    width: 120px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    margin: 0 auto;
+  }
+  
+ 
+  
