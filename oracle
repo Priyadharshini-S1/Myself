@@ -1,0 +1,147 @@
+
+--SIZE TABLE
+create table sizee 
+(size_eqp varchar2(10) primary key);
+
+insert into sizee(size_eqp) values('S');
+insert into sizee(size_eqp) values('M');
+insert into sizee(size_eqp) values('L');
+
+DROP TABLE sizee;
+
+--type table
+create table typee
+(eqptype varchar2(10) primary key);
+
+insert all
+ into typee(eqptype) values('GP')
+ into typee(eqptype) values ('REF')
+ into typee(eqptype) values  ('TNK')
+ into typee(eqptype) values   ('CON')
+Select * from dual;
+
+select * from typee
+
+CREATE OR REPLACE PACKAGE Equipment_Package AS
+    PROCEDURE Insert_Equipment(
+        p_Eqpmt_No IN VARCHAR2,
+        p_Eqpmt_size IN VARCHAR2,
+        p_Eqpmt_type IN VARCHAR2,
+        p_Manuf_date IN DATE,
+        p_Equipment_owner IN VARCHAR2,
+        p_Equipment_photo IN VARCHAR2,
+        p_Isp_doc IN VARCHAR2
+    );
+    PROCEDURE Update_Equipment(
+        p_Eqpmt_No IN VARCHAR2,
+        p_Eqpmt_size IN VARCHAR2,
+        p_Eqpmt_type IN VARCHAR2,
+        p_Manuf_date IN DATE,
+        p_Equipment_owner IN VARCHAR2,
+        p_Equipment_photo IN VARCHAR2,
+        p_Isp_doc IN VARCHAR2
+    );
+    PROCEDURE Delete_Equipment(p_Eqpmt_No IN VARCHAR2);
+    
+     PROCEDURE Get_All_Equipment(equipment_cursor OUT SYS_REFCURSOR);
+
+    PROCEDURE Get_Equipment_By_No(
+        p_Eqpmt_No IN VARCHAR2,
+        equipment_cursor OUT SYS_REFCURSOR
+    );
+
+END Equipment_Package;
+
+/
+CREATE OR REPLACE PACKAGE BODY Equipment_Package AS
+    PROCEDURE Insert_Equipment(
+        p_Eqpmt_No IN VARCHAR2,
+        p_Eqpmt_size IN VARCHAR2,
+        p_Eqpmt_type IN VARCHAR2,
+        p_Manuf_date IN DATE,
+        p_Equipment_owner IN VARCHAR2,
+        p_Equipment_photo IN VARCHAR2,
+        p_Isp_doc IN VARCHAR2
+    ) AS
+    BEGIN
+        INSERT INTO Equipment_Details (Eqpmt_No, Eqpmt_size, Eqpmt_type, Manuf_date, Equipment_owner, Equipment_photo, Isp_doc)
+        VALUES (p_Eqpmt_No, p_Eqpmt_size, p_Eqpmt_type, p_Manuf_date, p_Equipment_owner, p_Equipment_photo, p_Isp_doc);
+    END Insert_Equipment;
+    PROCEDURE Update_Equipment(
+        p_Eqpmt_No IN VARCHAR2,
+        p_Eqpmt_size IN VARCHAR2,
+        p_Eqpmt_type IN VARCHAR2,
+        p_Manuf_date IN DATE,
+        p_Equipment_owner IN VARCHAR2,
+        p_Equipment_photo IN VARCHAR2,
+        p_Isp_doc IN VARCHAR2
+    ) AS
+    BEGIN
+        UPDATE Equipment_Details
+        SET Eqpmt_size = p_Eqpmt_size,
+            Eqpmt_type = p_Eqpmt_type,
+            Manuf_date = p_Manuf_date,
+            Equipment_owner = p_Equipment_owner,
+            Equipment_photo = p_Equipment_photo,
+            Isp_doc = p_Isp_doc
+        WHERE Eqpmt_No = p_Eqpmt_No;
+    END Update_Equipment;   
+    PROCEDURE Delete_Equipment(p_Eqpmt_No IN VARCHAR2) AS
+    BEGIN
+        DELETE FROM Equipment_Details WHERE Eqpmt_No = p_Eqpmt_No;
+    END Delete_Equipment;
+    
+  PROCEDURE Get_All_Equipment(equipment_cursor OUT SYS_REFCURSOR) IS
+    BEGIN
+        OPEN equipment_cursor FOR
+        SELECT * FROM Equipment_Details;
+    END Get_All_Equipment;
+
+   PROCEDURE Get_Equipment_By_No(
+        p_Eqpmt_No IN VARCHAR2,
+        equipment_cursor OUT SYS_REFCURSOR
+    ) IS
+    BEGIN
+        OPEN equipment_cursor FOR
+        SELECT * FROM Equipment_Details WHERE Eqpmt_No = p_Eqpmt_No;
+    END Get_Equipment_By_No;
+
+    PROCEDURE Call_Get_All_Equipment IS
+        equipment_cursor SYS_REFCURSOR;
+    BEGIN
+        Equipment_Package.Get_All_Equipment(equipment_cursor);
+    END Call_Get_All_Equipment;
+END Equipment_Package;
+
+
+CREATE TABLE Equipment_Details (
+    Eqpmt_No VARCHAR2(10) PRIMARY KEY,
+    Eqpmt_size VARCHAR2(100),
+    Eqpmt_type VARCHAR2(100),
+    Manuf_date DATE,
+    Equipment_owner VARCHAR2(100),
+    Equipment_photo VARCHAR2(100),
+    Isp_doc VARCHAR2(100),
+    FOREIGN KEY (Eqpmt_size) REFERENCES sizee(size_eqp),
+    FOREIGN KEY (Eqpmt_type) REFERENCES typee(eqptype)
+);
+
+insert into Equipment_Details(Eqpmt_No,Eqpmt_size,Eqpmt_type,Manuf_date,Equipment_owner,Equipment_photo,Isp_doc)
+values('ABCDEF1235','S','GP',TO_DATE('2024-03-15', 'YYYY-MM-DD'),'DFG','EFT','abcdefghijk');
+
+SELECT * FROM Equipment_Details
+DROP TABLE Equipment_Details
+
+DECLARE
+  equipment_cursor SYS_REFCURSOR;
+BEGIN
+  Equipment_Package.Get_All_Equipment(equipment_cursor);
+  -- Use the cursor to fetch the results if needed
+END;
+
+CREATE OR REPLACE PROCEDURE Fetch_Equipment_Details AS
+    equipment_cursor SYS_REFCURSOR;
+BEGIN
+    Equipment_Package.Get_All_Equipment(equipment_cursor);
+END Fetch_Equipment_Details;
+/
