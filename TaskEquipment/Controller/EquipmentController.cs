@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TaskEquipment.Contracts;
 using TaskEquipment.Models;
-
+using Microsoft.AspNetCore.Mvc;
 namespace TaskEquipment.Controller
 {
     [Route("api/[controller]")]
@@ -17,7 +17,7 @@ namespace TaskEquipment.Controller
 
 
         [HttpGet]
-        public async Task<IActionResult> GetClothing()
+        public async Task<IActionResult> GetEquipment()
         {
             try
             {
@@ -29,6 +29,20 @@ namespace TaskEquipment.Controller
                 return StatusCode(500, ex.Message);
             }
         }
+        
+        // [HttpGet]
+        // public IActionResult Get()
+        // {
+        //     try
+        //     {
+        //         var eqpmt = _equipmentRepository.geteq();
+        //         return Ok(eqpmt);
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         return StatusCode(500, ex.Message);
+        //     }
+        // }
 
         [HttpGet("{eqpmtno}")]
         public async Task<IActionResult> GetEquipment(string eqpmtno)
@@ -75,6 +89,20 @@ namespace TaskEquipment.Controller
             {
                 return StatusCode(500, ex.Message);
             }
+        }
+         [HttpPost]
+         public async Task<IActionResult> AddEquipmen(Equipment eqpmt)
+         {
+
+           try
+            {
+              var eqpmts = await _equipmentRepository.AddEquipment(eqpmt);
+              return Ok(eqpmts);
+            }
+           catch (Exception ex)
+           {
+             return StatusCode(500, ex.Message);
+           }
         }
     }
 }

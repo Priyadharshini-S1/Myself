@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using Dapper;
 using Oracle.ManagedDataAccess.Client;
+using Microsoft.Extensions.Configuration;
 namespace TaskEquipment.Context
 {
     public class DapperContext
