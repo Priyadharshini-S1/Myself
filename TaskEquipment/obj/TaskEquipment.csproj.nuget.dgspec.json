@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\TaskEquipment\\TaskEquipment.csproj": {}
+    "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\taskequipment\\TaskEquipment.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\TaskEquipment\\TaskEquipment.csproj": {
+    "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\taskequipment\\TaskEquipment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\TaskEquipment\\TaskEquipment.csproj",
+        "projectUniqueName": "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\taskequipment\\TaskEquipment.csproj",
         "projectName": "TaskEquipment",
-        "projectPath": "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\TaskEquipment\\TaskEquipment.csproj",
+        "projectPath": "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\taskequipment\\TaskEquipment.csproj",
         "packagesPath": "C:\\Users\\Priyadharshini.S\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\TaskEquipment\\obj\\",
+        "outputPath": "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\taskequipment\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Priyadharshini.S\\AppData\\Roaming\\NuGet\\NuGet.Config",

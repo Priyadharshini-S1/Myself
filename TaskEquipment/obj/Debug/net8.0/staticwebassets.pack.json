@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\taskequipment\\wwwroot\\uploads\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot (3).png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TaskEquipment.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.TaskEquipment.props",
+      "PackagePath": "build\\TaskEquipment.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.TaskEquipment.props",
+      "PackagePath": "buildMultiTargeting\\TaskEquipment.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.TaskEquipment.props",
+      "PackagePath": "buildTransitive\\TaskEquipment.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

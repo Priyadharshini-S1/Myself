@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "XVhjFR2xgh+J+yaKYuJYC+R1lynTTqbtToA3G5IIP9Y=",
+  "Hash": "ky8Ux/Ueb3oqUMIQkOOTT/8gjjMtKIYONRU9oJBEW5g=",
   "Source": "TaskEquipment",
   "BasePath": "_content/TaskEquipment",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "TaskEquipment\\wwwroot",
+      "Source": "TaskEquipment",
+      "ContentRoot": "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\taskequipment\\wwwroot\\",
+      "BasePath": "_content/TaskEquipment",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\taskequipment\\wwwroot\\uploads\\Screenshot (3).png",
+      "SourceId": "TaskEquipment",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\taskequipment\\wwwroot\\",
+      "BasePath": "_content/TaskEquipment",
+      "RelativePath": "uploads/Screenshot (3).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Screenshot (3).png"
+    }
+  ]
 }

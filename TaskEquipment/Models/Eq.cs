@@ -1,10 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-
 namespace TaskEquipment.Models
 {
-    public class Equipment
+    public class Eq
     {
-        [Key]
+
         public string Eqpmt_No { get; set; }
 
         public string Eqpmt_size { get; set; }
@@ -15,8 +13,9 @@ namespace TaskEquipment.Models
 
         public string Equipment_owner { get; set; }
 
-        public IFormFile Equipment_photo { get; set; }
-        public IFormFile Isp_doc { get; set; }
+        public byte[] Equipment_photo { get; set; }
+        public byte[] Isp_doc { get; set; }
 
     }
-}
+        
+    }

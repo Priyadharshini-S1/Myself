@@ -47,3 +47,4 @@ c:\Users\Priyadharshini.S\source\repos\TaskEquipment\TaskEquipment\obj\Debug\net
 c:\Users\Priyadharshini.S\source\repos\TaskEquipment\TaskEquipment\obj\Debug\net8.0\TaskEquipment.pdb
 c:\Users\Priyadharshini.S\source\repos\TaskEquipment\TaskEquipment\obj\Debug\net8.0\TaskEquipment.genruntimeconfig.cache
 c:\Users\Priyadharshini.S\source\repos\TaskEquipment\TaskEquipment\obj\Debug\net8.0\ref\TaskEquipment.dll
+C:\Users\Priyadharshini.S\source\repos\TaskEquipment\taskequipment\bin\Debug\net8.0\TaskEquipment.staticwebassets.runtime.json

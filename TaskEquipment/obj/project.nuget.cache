@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tWk+hfGabyIaNa4ZajFC1ABB2fg2R2eWCPpTZ4IhMfxoPGa1/PS0bluudXspVocxjvm7iISZMtRQRC/4/q1uxQ==",
+  "dgSpecHash": "3to84+OV9WqLLYdcKNbrCG8Xs/Er6Givj/UwD1bRoKJ1olU63SC7QZvW6ukXJPVWoW70c6P7mUJ/z+0twQQ8Lg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\TaskEquipment\\TaskEquipment.csproj",
+  "projectFilePath": "C:\\Users\\Priyadharshini.S\\source\\repos\\TaskEquipment\\taskequipment\\TaskEquipment.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Priyadharshini.S\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\Priyadharshini.S\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
