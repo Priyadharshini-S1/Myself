@@ -1,0 +1,85 @@
+<div class="card">
+    <p-table
+        [value]="log1"
+        [lazy]="true"
+        (onLazyLoad)="getUsers($event)"
+        dataKey="id"
+        [tableStyle]="{ 'min-width': '75rem' }"
+        
+        [paginator]="true"
+        [rows]="5"
+        [totalRecords]="totalRecords"
+        [loading]="loading"
+        sortField="product_Name"
+        [sortOrder]="1"
+        
+    >
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 4rem"></th>
+                <th pSortableColumn="product_Name">Product Name <p-sortIcon field="product_Name"></p-sortIcon></th>
+                <th pSortableColumn="quantity">Quantity <p-sortIcon field="quantity"></p-sortIcon></th>
+                <th pSortableColumn="ownername">Owner name <p-sortIcon field="ownername"></p-sortIcon></th>
+                <th pSortableColumn="package_Id">Package Id <p-sortIcon field="package_Id"></p-sortIcon></th>
+                <th pSortableColumn="packed_Date">Packed Date <p-sortIcon field="packed_Date"></p-sortIcon></th>
+                <th pSortableColumn="expected_Date">Expected Date <p-sortIcon field="expected_Date"></p-sortIcon></th>
+                <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
+                <th pSortableColumn="delivery_Status">Delivery Status <p-sortIcon field="delivery_Status"></p-sortIcon></th>
+                <th pSortableColumn="from_Location">From <p-sortIcon field="from_Location"></p-sortIcon></th>
+                <th pSortableColumn="to_Location">To <p-sortIcon field="to_Location"></p-sortIcon></th>
+            </tr>
+            <tr>
+                <th style="width: 4rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="product_Name"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="quantity"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="ownername"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="package_Id"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="packed_Date"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="expected_Date"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="price"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="delivery_Status"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="from_Location"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="to_Location"></p-columnFilter>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-logistic>
+            <tr>
+                <td>
+                    <p-tableCheckbox [value]="logistic"></p-tableCheckbox>
+                </td>
+                <td>{{ logistic.product_Name }}</td>
+                <td>{{ logistic.quantity }}</td>
+                <td>{{ logistic.ownername }}</td>
+                <td>{{ logistic.package_Id }}</td>
+                <td>{{ logistic.packed_Date }}</td>
+                <td>{{ logistic.expected_Date }}</td>
+                <td>{{ logistic.price }}</td>
+                <td>{{ logistic.delivery_Status }}</td>
+                <td>{{ logistic.from_Location }}</td>
+                <td>{{ logistic.to_Location }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

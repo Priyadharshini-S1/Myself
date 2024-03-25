@@ -1,44 +1,42 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { TableModule } from 'primeng/table';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ButtonModule } from 'primeng/button';
-import { DropdownModule } from 'primeng/dropdown';
-import { TagModule } from 'primeng/tag';
+
+import { HomeComponent } from './components/home/home.component';
+import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
-import {DialogModule} from 'primeng/dialog';
-import { HttpClientModule } from "@angular/common/http";
-import { FormGroup } from '@angular/forms';
-import { StyleClassModule } from 'primeng/styleclass';
+import { JwtModule, JwtModuleOptions } from '@auth0/angular-jwt';
+import { HttpClientModule } from '@angular/common/http';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-import { CalendarModule } from 'primeng/calendar';
-import { FileUploadModule } from 'primeng/fileupload';
-import { ToastModule } from 'primeng/toast';
+import { LazyloadComponent } from './components/lazyload/lazyload.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+   HomeComponent,
+   LazyloadComponent,
+    
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     TableModule,
-    ButtonModule,
-    DropdownModule,
-    TagModule ,
     FormsModule,
-    BrowserAnimationsModule,
-    ButtonModule,
-    DialogModule,
-    StyleClassModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('token');
+        }
+      }
+    }),
     HttpClientModule,
-    CalendarModule,
-    FileUploadModule,
-    ToastModule,
-  
+    BrowserAnimationsModule
   ],
   providers: [
     provideClientHydration()
