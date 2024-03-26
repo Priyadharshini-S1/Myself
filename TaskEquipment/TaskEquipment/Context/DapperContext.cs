@@ -1,0 +1,20 @@
+﻿using System.Data;
+using Dapper;
+using Oracle.ManagedDataAccess.Client;
+using Microsoft.Extensions.Configuration;
+namespace TaskEquipment.Context
+{
+    public class DapperContext
+    {
+        private readonly IConfiguration _configuration;
+        private readonly string _connectionString;
+
+        public DapperContext(IConfiguration configuration)
+        {
+            _configuration = configuration;
+            _connectionString = _configuration.GetConnectionString("Default");
+        }
+
+        public IDbConnection CreateConnection() => new OracleConnection(_connectionString);
+    }
+}
