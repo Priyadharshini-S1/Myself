@@ -8,6 +8,7 @@ import { AddEquipInt } from './Equipments';
 })
 export class EquipmentserviceService {
   baseApiUrl:string="http://localhost:5127";
+  baseUrl:string="http://localhost:5127/api/equipment";
   constructor(private http:HttpClient) {
   }
   getAllequipments():Observable<Equipments[]>{
@@ -25,7 +26,7 @@ export class EquipmentserviceService {
   {
     const formData = new FormData();
     formData.append('eqpmt_No', addeqpmtRequests.eqpmt_No);
-    formData.append('eqpmt_size', addeqpmtRequests.eqpmt_size);
+    formData.append('eqpmt_size', addeqpmtRequests.eqpmt_size.toString());
     formData.append('eqpmt_type', addeqpmtRequests.eqpmt_type);
     formData.append('manuf_date', addeqpmtRequests.manuf_date.toISOString());
     formData.append('equipment_owner', addeqpmtRequests.equipment_owner);
@@ -56,7 +57,7 @@ export class EquipmentserviceService {
     {
       const formData = new FormData();
       formData.append('eqpmt_No', addeqpmtRequest.eqpmt_No);
-      formData.append('eqpmt_size', addeqpmtRequest.eqpmt_size);
+      formData.append('eqpmt_size', addeqpmtRequest.eqpmt_size.toString());
       formData.append('eqpmt_type', addeqpmtRequest.eqpmt_type);
       formData.append('equipment_owner', addeqpmtRequest.equipment_owner);
     if (addeqpmtRequest.equipment_photo) {
@@ -73,5 +74,12 @@ export class EquipmentserviceService {
     }
   uploadFormData(formData: FormData) {
       return this.http.post<any>(this.baseApiUrl+'/api/equipment/', formData);
+    }
+    getEquipmentPhoto(equipmentId: number): Observable<any> {
+      return this.http.get(`${this.baseUrl}/photo/${equipmentId}`, { responseType: 'blob' });
+    }
+  
+    getInspectionDocument(equipmentId: number): Observable<any> {
+      return this.http.get(`${this.baseUrl}/inspection-document/${equipmentId}`, { responseType: 'blob' });
     }
 }

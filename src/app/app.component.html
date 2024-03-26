@@ -1,1 +1,266 @@
+<div class="table-container">
+  <h2 class="table-title">Equipment Details</h2>
+<p-table
+    [value]="equipment"
+    [paginator]="true"
+    [rows]="20"
+    [first]="first"
+    [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [tableStyle]="{  'border': '2px solid rgb(22, 132, 235)','align-items':'center' , 'justify-content':'center'}"
+    
+>
+    <ng-template pTemplate="header" class="h">
+        <tr>
+          <th >Equipment No</th>
+          <th>Equipment Size</th>
+          <th>Equipment Type</th>
+          <th>Manufacture Date</th>
+          <th>Equipment Owner</th>
+          <th>Equipment Photo</th>
+          <th>Inspection Document</th>
+          <th></th>
+        </tr>
+
+        <tr>
+          <td>
+              <p-columnFilter type="text" field="eqpmt_No"></p-columnFilter>
+          </td>
+          <td>
+              <p-columnFilter type="text" field="eqpmt_size"></p-columnFilter>
+          </td>
+          <td>
+            <p-columnFilter type="text" field="eqpmt_type"></p-columnFilter>
+          </td>
+          
+        <td>
+          <p-columnFilter type="text" field="manuf_date"></p-columnFilter>
+       </td>
+       <td>
+          <p-columnFilter type="text" field="equipment_owner"></p-columnFilter>
+      </td>
+      <td>
+        <p-columnFilter type="text" field="equipment_photo"></p-columnFilter>
+      </td>
+      <td>
+        <p-columnFilter type="text" field="isp_doc"></p-columnFilter>
+      </td>
+      </tr>
+
+    </ng-template>
+    <ng-template pTemplate="body" let-equipment>
+      <tr class="align-center">
+        <td>
+            {{ equipment.eqpmt_No }}
+        </td>
+        <td>
+           {{equipment.eqpmt_size}}
+        </td>
+        <td>
+             {{equipment.eqpmt_type}}
+        </td>
+        <td>
+            {{ equipment.manuf_date }}
+        </td>
+        <td>
+            {{ equipment.equipment_owner }}
+        </td>
+        <td>
+          <a href="#" (click)="getEquipmentPhoto(equipment.eqpmt_Id)">
+              <i class="pi pi-image"></i>
+          </a>
+        </td>
+        <td>
+          <a href="#" (click)="getInspectionDocument(equipment.eqpmt_Id)">
+              <i class="pi pi-image"></i>
+          </a>
+        </td>
+        <td><input type="checkbox" (change)="onRowSelect($event, equipment)"></td>
+    </tr>
+    </ng-template>
+    
+</p-table>
+</div>
+    
+
+<p-dialog header="New Equipment" [(visible)]="displayAddDialog" [modal]="true" [responsive]="true" [style]="{ 'width': '1000px' ,'height':'700px'}" class="header">
+  <form #form="ngForm" (ngSubmit)="addequipment(form)">
+  <div class="formgrid grid">
+    <div class="field col">
+        <label for="firstname2">Equipment ID</label>
+        <input id="firstname2" name="eqpmt_No" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" placeholder="Enter Equipment ID" [(ngModel)]="addeqpmtRequests.eqpmt_No">
+    </div>
+    <div class="field col">
+        <label for="lastname2">Equipment Size</label>
+        <select id="size" name="eqpmt_size" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto" [(ngModel)]="addeqpmtRequests.eqpmt_size">
+            <option>20</option>
+            <option>40</option>
+            <option>60</option>
+        </select>
+    </div>   
+  </div>
+
+  <div class="formgrid grid">
+    <div class="field col">
+      <label for="lastname2">Equipment Type</label>
+      <select id="type" name="eqpmt_type" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto"  [(ngModel)]="addeqpmtRequests.eqpmt_type">
+          <option>CON</option>
+          <option>GP</option>
+          <option>REF</option>
+          <option>TNK</option>
+      </select>
+    </div>  
+    <div class="field col">
+        <div class="flex-auto">
+          <label for="buttondisplay" class="w-full text-base text-color surface-overlay block mb-2">Manufacture Date</label>
+          <p-calendar [(ngModel)]="equipment" name="manuf_date" [showIcon]="true" inputId="buttondisplay" [style]="{ 'width': '100%', 'height': '200%' , 'z-index': '1000'  }" [(ngModel)]="addeqpmtRequests.manuf_date"></p-calendar>
+      </div>
+      
+        
+    </div>  
+  </div>
+
+  <div class="formgrid grid">
+    <div class="field col">
+        <label for="firstname2">Equipment Owner</label>
+        <input id="firstname2" name="equipment_owner" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" placeholder="Enter Equipment Owner" [(ngModel)]="addeqpmtRequests.equipment_owner">
+    </div>
+    <!-- <div class="field col">
+      <label for="lastname2">Equipment Photo</label>
+      <div class="card flex justify-content-center">
+        <p-toast></p-toast>
+        <p-fileUpload name="equipment_photo" url="https://www.primefaces.org/cdn/api/upload.php" (onUpload)="onUploads($event)" [multiple]="true" accept="image/*">
+          <ng-template pTemplate="content">
+              <ul *ngIf="uploadedFiles.length">
+                  <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+              </ul>
+          </ng-template>
+      </p-fileUpload>
+      </div>  
+    </div>   -->
+    <div class="field col">
+      <label for="equipment_photo">Equipment Photo</label>
+      <div class="card flex justify-content-center">
+        <input type="file" id="equipment_photo" name="equipment_photo" (change)="onSelectFile($event)">
+        <img [src]="url" *ngIf="url" height="200">
+      </div>
+    </div>
+
+
+  </div>
+  
+  <div class="formgrid grid">
+    <!-- <div class="field col">
+      <label for="lastname2">Inspection Document</label>
+      <div class="card flex justify-content-center">
+        <p-toast></p-toast>
+        <p-fileUpload name="isp_doc" url="https://www.primefaces.org/cdn/api/upload.php" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" >
+          <ng-template pTemplate="content">
+              <ul *ngIf="uploadedFiles.length">
+                  <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+              </ul>
+          </ng-template>
+      </p-fileUpload>
+      </div>
+    </div>    -->
+    <div class="field col">
+      <label for="isp_doc">Inspection Document</label>
+      <div class="card flex justify-content-center">
+        <input type="file" id="isp_doc" name="isp_doc" (change)="onSelectFiles($event)">
+        <img [src]="url1" *ngIf="url1" height="200">
+      </div>
+    </div>
+  </div>
+  
+<p-button label="Submit" type="submit"></p-button>
+</form>
+</p-dialog>
+
+
+<p-dialog header="Edit Equipment" [(visible)]="displayEditDialog" [modal]="true" [responsive]="true" [style]="{ 'width': '1000px' ,'height':'700px'}" class="header">
+  <form #form="ngForm" (ngSubmit)="updateEquipment(form)">
+  <div class="formgrid grid">
+    <div class="field col">
+        <label for="firstname2">Equipment ID</label>
+        <input id="firstname2" name="eqpmt_No" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" placeholder="Enter Equipment ID" [(ngModel)]="addeqpmtRequest.eqpmt_No">
+    </div>
+    <div class="field col">
+        <label for="lastname2">Equipment Size</label>
+        <select id="size" name="eqpmt_size" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto" [(ngModel)]="addeqpmtRequest.eqpmt_size">
+          <option>20</option>
+          <option>40</option>
+          <option>60</option>
+        </select>
+    </div>   
+  </div>
+
+  <div class="formgrid grid">
+    <div class="field col">
+      <label for="lastname2">Equipment Type</label>
+      <select id="type" name="eqpmt_type" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto"  [(ngModel)]="addeqpmtRequest.eqpmt_type">
+          <option>CON</option>
+          <option>GP</option>
+          <option>REF</option>
+          <option>TNK</option>
+      </select>
+    </div>  
+    <div class="field col">
+        <div class="flex-auto">
+          <label for="buttondisplay" class="w-full text-base text-color surface-overlay block mb-2">Manufacture Date</label>
+          <p-calendar [(ngModel)]="equipment" name="manuf_date" [showIcon]="true" inputId="buttondisplay" [style]="{ 'width': '100%', 'height': '200%' , 'z-index': '1000'  }" [(ngModel)]="addeqpmtRequest.manuf_date"></p-calendar>
+      </div>
+      
+        
+    </div>  
+  </div>
+
+  <div class="formgrid grid">
+    <div class="field col">
+        <label for="firstname2">Equipment Owner</label>
+        <input id="firstname2" name="equipment_owner" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" placeholder="Enter Equipment Owner" [(ngModel)]="addeqpmtRequest.equipment_owner">
+    </div>
+    <div class="field col">
+      <label for="lastname2">Equipment Photo</label>
+      <div class="card flex justify-content-center">
+        <p-toast></p-toast>
+        <!-- <p-fileUpload mode="basic" chooseLabel="Choose" type="file" name="file" url="http://localhost:5127/api/Equipment/" accept="image/*" (onUpload)="onUpload($event)" [(ngModel)]="addeqpmtRequests.equipment_photo"></p-fileUpload>  -->
+        <p-fileUpload name="equipment_photo" url="https://www.primefaces.org/cdn/api/upload.php" (onUpload)="onUploads($event)" [multiple]="true" accept="image/*">
+          <ng-template pTemplate="content">
+              <ul *ngIf="uploadedFiles.length">
+                  <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+              </ul>
+          </ng-template>
+      </p-fileUpload>
+      </div>  
+    </div> 
+
+  </div>
+  <div class="formgrid grid">
+    <div class="field col">
+      <label for="lastname2">Inspection Document</label>
+      <div class="card flex justify-content-center">
+        <p-toast></p-toast>
+        <!-- <p-fileUpload mode="basic" chooseLabel="Choose" type="file" name="isp_doc" url="http://localhost:5127/api/Equipment/" accept="image/*"  (onUpload)="onUpload($event)" [(ngModel)]="addeqpmtRequests.isp_doc"></p-fileUpload> -->
+        <p-fileUpload name="isp_doc" url="https://www.primefaces.org/cdn/api/upload.php" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" >
+          <ng-template pTemplate="content">
+              <ul *ngIf="uploadedFiles.length">
+                  <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+              </ul>
+          </ng-template>
+      </p-fileUpload>
+      </div>
+    </div>   
+  </div>
+  
+<p-button label="Submit" type="submit"></p-button>
+</form>
+</p-dialog>
+
+ <div class="buttonw" style="margin-top: 10px;">
+  <p-button label="New" class="p-button-success" (click)="showDialog(true)"></p-button>
+  <p-button label="Edit" class="p-button-warning" (click)="showDialogedit()"></p-button>
+  <p-button label="Delete" class="p-button-danger" (click)="deleteEquipment(addeqpmtRequest.eqpmt_No)"></p-button>  
+</div> 
 <router-outlet></router-outlet>

@@ -1,0 +1,60 @@
+th{
+    background-color: rgb(22, 132, 235);
+    color:white;
+    font-size: large;
+}
+.column-header {
+    border-right: 1px solid  rgb(22, 132, 235);;
+}
+
+
+.align-center{
+    text-align: center;
+    justify-content: center;
+    height: 20px;;
+}
+.align-centers{
+    padding: 10px;
+}
+td{
+    text-align: center;
+    justify-content: center;
+
+}
+.buttonw{
+    display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+tr{
+    height: 20px;;
+}
+:host{
+    ::ng-deep .ui-dialog .ui-dialog-titlebar {
+        background-color: #007bff;
+        color: #ffffff; 
+}
+
+}
+.wrap-content {
+    white-space: normal !important; 
+}
+.table-container {
+    margin: 20px;
+  }
+  
+  .table-title {
+    margin: 0 0 10px 0;
+    text-align: center;
+  }
+  .table-title {
+    color: #3366ff; 
+    font-family: Arial, sans-serif;
+    font-size: 24px; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    font-weight: bold;
+  }
+
+
