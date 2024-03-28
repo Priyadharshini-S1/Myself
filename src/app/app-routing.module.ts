@@ -1,15 +1,20 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { NextPageComponent } from './next-page/next-page.component';
+import { LazyLoadComponent } from './lazy-load/lazy-load.component';
 
 const routes: Routes = [
-  {path: 'app',component:AppComponent},
-  {path: 'next-page',component:NextPageComponent}
+
+  
+{path:'', component:LazyLoadComponent}
+
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+  
+ }
